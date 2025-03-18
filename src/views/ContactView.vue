@@ -15,16 +15,16 @@
                         <div class="flex  flex-col gap-3">
                             <p class="font-bold">[Ho Chi Minh City]</p>
                             <p class="flex flex-col text-sm font-bold">162 HT17, P. Hiệp Thành, Q. 12, TP. HCM (Nằm trong khuôn viên công ty SAVIMEX phía sau bến xe buýt Hiệp Thành)
-                                <span>Hotline: 0971 141 140</span></p>
+                                <span>Hotline: 0359 226 089</span></p>
                             <p class="flex flex-col text-sm font-bold">S05.03-S18 phân khu The Rainbow | Vinhomes Grand Park, TP. Thủ Đức.
-                                <span>Hotline: 0931 880 424</span></p>
+                                <span>Hotline: 0359 226 089</span></p>
                         </div>
                         <div class="flex  flex-col gap-3">
                             <p class="font-bold">[Ha Noi City]</p>
                             <p class="flex flex-col text-sm font-bold">S3.03-Sh15 phân khu Sapphire | Vinhomes Smart City, Hà Nội .
-                                <span>Hotline: 0909 665 728</span></p>
+                                <span>Hotline: 0359 226 089</span></p>
                             <p class="flex flex-col text-sm font-bold">S2.09-Sh19 phân khu Sapphire | Vinhomes Ocean Park, Hà Nội.
-                                <span>Hotline: 0938 108 772</span></p>
+                                <span>Hotline: 0359 226 089</span></p>
                         </div>
                     </div>
                     <div class="flex flex-col">
@@ -33,7 +33,7 @@
                     </div>
                     <div class="flex flex-col">
                         <p class="text-gray-500">Điện thoại</p>
-                        <p class="font-bold">097 114 1140 (Hotline/Zalo)</p>
+                        <p class="font-bold">0359 226 089 (Hotline/Zalo)</p>
                     </div>
                     <div class="flex flex-col">
                         <p class="text-gray-500">Thời gian làm việc</p>
