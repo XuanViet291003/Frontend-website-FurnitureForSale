@@ -1,6 +1,6 @@
 <template>
     <nav class="flex flex-col border-b">
-        <div class="bg-blue-800 text-sm py-1 px-5 text-center text-white">Nội Thất MOHO miễn phí giao hàng & lắp đặt tại TP.HCM, Hà Nội, Biên Hòa và một số khu vực tại Bình Dương</div>
+        <div class="bg-blue-800 text-sm py-1 px-5 text-center text-white">Nội Thất MOHO miễn phí giao hàng & lắp đặt tại TP.Hà Nội và một số khu vực tại Bắc Ninh</div>
         <div class="h-16 flex justify-between dark:bg-black px-5 md:px-0 md:justify-around items-center gap-2 ">
             <div @click="openMenu" class="flex lg:hidden relative items-center cursor-pointer dark:bg-black dark:text-white">
                 <VueIcon type="mdi" :path="!menu ? mdiViewHeadline : mdiClose  " size="40"/>
@@ -20,8 +20,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" href="" class="flex">Dịch Vụ </router-link>
-                    </li>
+                    <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" href="" class="flex">Dịch Vụ </router-link></li>
                     <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" class="flex">Về chúng tôi </router-link></li>
                     <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'contact'}" class="flex">Liên hệ </router-link></li>
                 </ul>
