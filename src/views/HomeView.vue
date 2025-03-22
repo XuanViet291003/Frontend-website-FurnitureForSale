@@ -1,19 +1,20 @@
 <template>
     <div  class="flex flex-col min-h-screen dark:bg-black dark:text-white">
         <div class="overflow-hidden relative flex items-center">
-            <div id="slider" class="flex w-screen transition-all duration-500" :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-                <img src="/assets/slider/slide1.webp" alt="" class="min-w-full h-[25vh] md:h-[50vh]">                
-                <img src="/assets/slider/slide2.webp" alt="" class="min-w-full h-[25vh] md:h-[50vh]">                
-                <img src="/assets/slider/slide3.webp" alt="" class="min-w-full h-[25vh] md:h-[50vh]">                
-                <img src="/assets/slider/slide4.jpg" alt="" class="min-w-full h-[25vh] md:h-[50vh]">     
+            <div id="slider" class="flex w-screen transition-transform duration-300 ease-in-out"   :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
+                <img src="/assets/slider/slide1.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh]">                
+                <img src="/assets/slider/slide2.webp" alt="" class="min-w-full  flex-shrink-0 h-[25vh] md:h-[60vh]">                
+                <img src="/assets/slider/slide3.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh]">                
+                <img src="/assets/slider/slide4.jpg" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh]">     
             </div>
             <div @click="prevSlide" class="absolute left-0 cursor-pointer animate-pulse text-black"><VueIcon type="mdi" :path="mdiChevronLeft" size="70"/></div>           
             <div @click="nextSlide" class="absolute right-0 cursor-pointer animate-pulse text-black"><VueIcon type="mdi" :path="mdiChevronRight" size="70"/></div>           
+            
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5 py-2">
             <div class="flex flex-col items-center gap-5 p-10">
                 <h1 class="uppercase text-3xl font-bold">NỘI THẤT TINH TẾ</h1>
-                <p>Với kinh nghiệm hơn 24 năm trong hoàn thiện nội thất, Nhà Xinh mang đến giải pháp toàn diện trong bao gồm thiết kế, trang trí và cung cấp nội thất trọn gói. Sở hữu đội ngũ chuyên nghiệp và hệ thống 10 cửa hàng, Nhà Xinh là lựa chọn cho không gian tinh tế và hiện đại.</p>
+                <p>Với kinh nghiệm hơn 30 năm trong hoàn thiện nội thất, Nhà Xinh mang đến giải pháp toàn diện trong bao gồm thiết kế, trang trí và cung cấp nội thất trọn gói. Sở hữu đội ngũ chuyên nghiệp và hệ thống 10 cửa hàng, Nhà Xinh là lựa chọn cho không gian tinh tế và hiện đại.</p>
                 <a href="" class="border-2 p-2 border-green-500 text-xl font-bold hover:text-white hover:bg-green-500">Xem thêm</a>
             </div>
             <div class="">
@@ -138,7 +139,7 @@ export default {
             setInterval(()=>{
                 this.nextSlide()
                 this.nextBlog()
-            },3000)
+            },2000)
         },
         nextBlog(){
             if(this.windowWidth>=768 && this.indexBlog< this.commentView.length-4 && this.commentView.length>4){
@@ -181,11 +182,12 @@ export default {
         async getCommentView(){
             try {
                 const res=await axios.get("/Comment/GetCommentBest")
-                this.commentView=res.data
-            } catch (err) {
-                console.log(err)
+                this.commentView = res.data
+            } catch (error) {
+                console.log(error)
             }
         }
+        
     },
     mounted(){
         this.startAutoSlide()
