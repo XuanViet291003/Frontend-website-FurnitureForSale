@@ -1,9 +1,47 @@
 <template>
-    <footer class="flex flex-col w-full bg-gray-100 dark:bg-black dark:text-white border">
-        <div class="grid md:grid-cols-2 lg:grid-cols-4  gap-5 py-2 px-10">
+    <footer class="flex flex-col w-full">
+        <div class="flex flex-row items-center justify-center w-3/4 mx-auto my-10">
+            <div class="group flex flex-col px-5 py-10 w-1/4 items-center justify-center gap-5 border-gray-50 border-2 hover:bg-slate-50 transition-all duration-200">
+                <div class="">
+                    <img src="/assets/image/footer/vice_item_1_thumb.webp" class="transition-all duration-500 transform group-hover:opacity-60" alt="">
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="text-center text-base transition-all duration-500 transform group-hover:scale-110">Giao Hàng & Lắp Đặt</div>
+                    <div class="text-center text-gray-400 text-sm">Miến Phí</div>
+                </div>
+            </div>
+            <div class="group flex flex-col px-5 py-10 w-1/4 items-center justify-center gap-5 border-gray-50 border-2 hover:bg-slate-50 transition-all duration-200">
+                <div>
+                    <img src="/assets/image/footer/vice_item_2_thumb.webp" class="transition-all duration-500 transform group-hover:opacity-60 " alt="">
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="text-center text-base transition-all duration-500 transform group-hover:scale-110">Đổi Trả 1 - 1</div>
+                    <div class="text-center text-gray-400 text-sm">Miến Phí</div>
+                </div>
+            </div>
+            <div class="group flex flex-col px-5 py-10 w-1/4 items-center justify-center gap-5 border-gray-50 border-2 hover:bg-slate-50 transition-all duration-200">
+                <div>
+                    <img src="/assets/image/footer/vice_item_3_thumb.webp" class="transition-all duration-500 transform group-hover:opacity-60" alt="">
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="text-center text-base transition-all duration-500 transform group-hover:scale-110">Bảo Hành 2 Năm</div>
+                    <div class="text-center text-gray-400 text-sm">Miến Phí</div>
+                </div>
+            </div>
+            <div class="group flex flex-col px-5 py-10 w-1/4 items-center justify-center gap-5 border-gray-50 border-2 hover:bg-slate-50 transition-all duration-200">
+                <div>
+                    <img src="/assets/image/footer/vice_item_4_thumb.webp" class="transition-all duration-500 transform group-hover:opacity-60" alt="">
+                </div>
+                <div class="flex flex-col gap-4">
+                    <div class="text-center text-base transition-all duration-500 transform group-hover:scale-110">Tư Vấn Thiết Kế</div>
+                    <div class="text-center text-gray-400 text-sm">Miến Phí</div>
+                </div>
+            </div>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4  gap-5 py-2 px-10  bg-gray-100 dark:bg-black dark:text-white border">
             <div class="col-span-1 flex flex-col gap-2">
                 <h1 class="uppercase font-semibold">Nội Thất MOHO</h1>
-                <p class="text-gray-600 dark:text-white">Nội Thất MOHO là thương hiệu đến từ Savimex với gần 40 năm kinh nghiệm trong việc sản xuất và xuất khẩu nội thất đạt chuẩn quốc tế.</p>
+                <p class="text-gray-600 dark:text-white">Nội Thất MOHO là thương hiệu với gần 40 năm kinh nghiệm trong việc sản xuất và xuất khẩu nội thất đạt chuẩn quốc tế.</p>
             </div>
             <div class="col-span-1 flex flex-col gap-2">
                 <h1 class="uppercase font-semibold">Dịch Vụ</h1>
@@ -22,8 +60,8 @@
                 <div class="flex gap-2 text-gray-600 dark:text-white">
                     <VueIcon type="mdi" :path="mdiMapMarker" width="100"/>
                     <div class="">
-                        <p>Showroom: 162 HT17, P. Hiệp Thành, Q. 12, TP. HCM (Nằm trong khuôn viên công ty SAVIMEX phía sau bến xe buýt Hiệp Thành) | Hotline: 0971 141 140</p>
-                        <p>Experience Store 1: S05.03-S18 phân khu The Rainbow | Vinhomes Grand Park, TP. Thủ Đức | Hotline: 0931 880 424</p>
+                        <p> (Nằm trong khuôn viên công ty SAVIMEX phía sau bến xe buýt Hiệp Thành) | Hotline: 0971 141 140</p>
+                        <p>Experience Store 1: S05.03-S18 phân khu The Rainbow | Vinhomes Grand Park, TP. | Hotline: </p>
                     </div>
                 </div>
                 <div class="flex gap-2 text-gray-600 dark:text-white">
