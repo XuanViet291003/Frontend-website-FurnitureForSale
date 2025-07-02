@@ -1,37 +1,31 @@
 <template>
     <nav class="flex flex-col border-b">
-        <div class="bg-blue-800 text-sm py-1 px-5 text-center text-white">Nội Thất MOHO miễn phí giao hàng & lắp đặt tại TP.Hà Nội và một số khu vực tại Bắc Ninh</div>
         <div class="h-16 flex justify-between dark:bg-black px-5 md:px-0 md:justify-around items-center gap-2 ">
             <div @click="openMenu" class="flex lg:hidden relative items-center cursor-pointer dark:bg-black dark:text-white">
                 <VueIcon type="mdi" :path="!menu ? mdiViewHeadline : mdiClose  " size="40"/>
-                <ul id="menu" :class="menu ? 'flex':'hidden'" class="absolute  flex-col font-bold bg-white dark:bg-black dark:text-white w-[50vw] z-10 top-14 -left-5 shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)]">
-                    <li v-for="(item, index) in category" :key="item.categoryTypeId" class="flex flex-col">
-                        <a href="javascript:void(0)" class="flex justify-between p-2 hover:bg-gray-200 hover:dark:text-black" @click.stop="toggleMenu(index)">
-                            {{ item.name }}
-                            <VueIcon type="mdi" :path="isMenuOpen(index) ? mdiChevronUp : mdiChevronDown" size="20" />
-                        </a>
-                        <div :class="isMenuOpen(index) ? 'flex' : 'hidden'" class="px-4">
-                            <ul class="flex flex-col">
-                                <li v-for="childItem in item.categories" :key="childItem.categoryId" class="hover:bg-gray-300 hover:text-red-500">
-                                <router-link :to="{ name: 'category', params: { id: childItem.categoryId } }" class="flex p-2" >
-                                    {{ childItem.name }}
-                                </router-link>
-                                </li>
-                            </ul>
-                        </div>
+                <ul id="menu" :class="menu ? 'flex':'hidden'" class="absolute flex-col font-bold bg-white dark:bg-black dark:text-white w-[50vw] z-10 top-14 -left-5 shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)]">
+                    <li>
+                        <CategoryMenu
+                            :category="category"
+                            :isOpen="isMenuOpen"
+                            :onClick="toggleMenu"
+                            ulClass="px-2"
+                            liClass="flex flex-col py-1.5"
+                            subUlClass="px-4"
+                        />
                     </li>
-                    <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" href="" class="flex">Dịch Vụ </router-link></li>
+                    <li class="flex items-center p-2 "><router-link :to="{name:'about'}" href="" class="flex">Dịch Vụ </router-link></li>
                     <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" class="flex">Về chúng tôi </router-link></li>
                     <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'contact'}" class="flex">Liên hệ </router-link></li>
                 </ul>
             </div>
             <div class="col-span-4 justify-center">
-                <router-link :to="{name:'home'}"><img src="/assets/image/logo.png" alt="" class=" w-40 h-8"></router-link>
+                <router-link :to="{name:'home'}"><img src="/assets/image/logo.png" alt="" class=" w-50 h-15"></router-link>
             </div>
             <div class="w-80 hidden md:flex">
-                <div class="flex items-center relative dark:bg-black dark:text-white border-2 p-1 border-gray-100 w-80 h-10">
-                    <input type="text" v-model="searchValue" placeholder="Tìm kiếm sản phẩm..." class="outline-none w-2/3 dark:bg-black dark:text-white">
-                    <router-link :to="{name:'search',query:{q:searchValue}}" class="absolute right-0 bg-gray-700 dark:bg-white h-10 w-10 flex justify-center items-center">
+                <div class="flex items-center relative dark:bg-black dark:text-white border-2 p-1 border-gray-100 w-80 h-10 rounded focus-within:border-gray-400" >
+                    <input type="text" v-model="searchValue" placeholder="Tìm kiếm sản phẩm..." class="outline-none w-2/3 dark:bg-black dark:text-white rounded ">
+                    <router-link :to="{name:'search',query:{q:searchValue}}" class="absolute right-0 bg-gray-700 dark:bg-white h-10 w-10 flex justify-center items-center rounded border-none">
                         <VueIcon type="mdi" :path="mdiMagnify" class="dark:text-black text-white"/>
                     </router-link>
                     <div v-if="showSuggestions" class=" absolute top-10 bg-white dark:bg-black dark:text-white max-h-80 overflow-x-auto w-full z-10 shadow-md rounded-sm">
@@ -161,18 +155,16 @@
                 </div>
             </div>
             <ul class="hidden lg:flex gap-5 px-10 text-sm">
-                <li v-for="items in category" :key="items.categoryTypeId" class="flex items-center py-4 relative group">
-                    <a href="javascript:void(0)" class="flex">{{ items.name }}
-                        <VueIcon type="mdi" :path="mdiChevronDown " size="20"/>
-                    </a>
-                    <ul class="hidden absolute group-hover:flex w-32 flex-col z-50 top-12 bg-white dark:bg-black dark:text-white border shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)]">
-                        <li v-for="item in items.categories" :key="item.categoryId" class="hover:bg-gray-300 hover:text-red-500 border-b">
-                            <router-link :to="{name:'category',params:{id:item.categoryId}}" class="flex p-2">{{item.name}}</router-link>
-                        </li>
-                    </ul>
+                <li>
+                    <CategoryMenu
+                        v-if="category && category.length"
+                        :category="category"
+                        ulClass="hidden lg:flex gap-5 px-0 text-sm"
+                        liClass="flex items-center py-4 relative group"
+                        subUlClass="hidden absolute group-hover:flex w-32 flex-col z-50 top-12 bg-white dark:bg-black dark:text-white border shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)]"
+                    />
                 </li>
-                <li class="flex items-center"><router-link :to="{name:'about'}">Dịch Vụ </router-link>
-                </li>
+                <li class="flex items-center"><router-link :to="{name:'about'}">Dịch Vụ </router-link></li>
                 <li class="flex items-center"><router-link :to="{name:'about'}">Về chúng tôi </router-link></li>
                 <li class="flex items-center"><router-link :to="{name:'contact'}">Liên hệ </router-link></li>
             </ul>
@@ -185,11 +177,12 @@ import {mdiMagnify,mdiAccountOutline ,mdiChevronDown,mdiTrashCanOutline ,mdiShop
 import RecoverPanel from '../recover/RecoverPanel.vue';
 import LoginPanel from '../login/LoginPanel.vue';
 import RegisterPanel from '../register/RegisterPanel.vue';
+import CategoryMenu from './CategoryMenu.vue';
 import axios from 'axios'
 export default {
     name:"NavBar",
     props:['countCart',"getCart","carts","totalAmount"],
-    components:{RecoverPanel,LoginPanel,RegisterPanel},
+    components:{RecoverPanel,LoginPanel,RegisterPanel,CategoryMenu},
     data() {
         return {
             isDarkMode :localStorage.getItem('darkMode')==='true' || false,
