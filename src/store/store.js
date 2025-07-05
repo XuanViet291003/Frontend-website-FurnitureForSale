@@ -4,12 +4,21 @@ import Vuex from "vuex"
 vue.use(Vuex)
 
 const store=new Vuex.Store({
-    state(){
-        return{
-            loading:false,
-            error:null,
-            user:JSON.parse(localStorage.getItem('user')) || null
+    state() {
+        let user = null;
+        const userData = localStorage.getItem('user');
+        if (userData) {
+            try {
+                user = JSON.parse(userData);
+            } catch (e) {
+                localStorage.removeItem('user');
+            }
         }
+        return {
+            loading: false,
+            error: null,
+            user
+        };
     },
     mutations:{
         LOGIN_START(state){

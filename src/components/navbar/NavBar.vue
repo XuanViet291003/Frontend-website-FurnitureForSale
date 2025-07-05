@@ -1,6 +1,6 @@
 <template>
-    <nav class="flex flex-col border-b">
-        <div class="h-16 flex justify-between dark:bg-black px-5 md:px-0 md:justify-around items-center gap-2 ">
+    <nav class="container mx-auto md:px-40 flex flex-col border-b  dark:bg-black ">
+        <div class=" flex justify-between w-full  dark:bg-black items-center gap-2 py-5">
             <div @click="openMenu" class="flex lg:hidden relative items-center cursor-pointer dark:bg-black dark:text-white">
                 <VueIcon type="mdi" :path="!menu ? mdiViewHeadline : mdiClose  " size="40"/>
                 <ul id="menu" :class="menu ? 'flex':'hidden'" class="absolute flex-col font-bold bg-white dark:bg-black dark:text-white w-[50vw] z-10 top-14 -left-5 shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)]">
@@ -14,12 +14,12 @@
                             subUlClass="px-4"
                         />
                     </li>
-                    <li class="flex items-center p-2 "><router-link :to="{name:'about'}" href="" class="flex">Dịch Vụ </router-link></li>
+                    <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" href="" class="flex">Dịch Vụ </router-link></li>
                     <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'about'}" class="flex">Về chúng tôi </router-link></li>
                     <li class="flex items-center p-2 hover:bg-gray-200 hover:text-red-500"><router-link :to="{name:'contact'}" class="flex">Liên hệ </router-link></li>
                 </ul>
             </div>
-            <div class="col-span-4 justify-center">
+            <div class="col-span-2 justify-center">
                 <router-link :to="{name:'home'}"><img src="/assets/image/logo.png" alt="" class=" w-50 h-15"></router-link>
             </div>
             <div class="w-80 hidden md:flex">
@@ -134,7 +134,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full p-2 dark:bg-black dark:text-white">
+        <div class=" w-full py-3 dark:bg-black dark:text-white">
             <div class="flex md:hidden items-center relative border-2 border-gray-100 dark:bg-black dark:text-white w-full h-10">
                 <input type="text" v-model="searchValue" placeholder="Tìm kiếm sản phẩm..." class="outline-none dark:bg-black dark:text-white w-2/3">
                 <router-link :to="{name:'search',query:{q:searchValue}}" class="absolute right-0 bg-gray-700 dark:bg-white h-10 w-10 flex justify-center items-center">
@@ -154,14 +154,14 @@
                     <p v-else class="p-2 text-center text-red-500">không tìm thấy sản phẩm</p>
                 </div>
             </div>
-            <ul class="hidden lg:flex gap-5 px-10 text-sm">
+            <ul class="hidden lg:flex gap-5 text-sm">
                 <li>
                     <CategoryMenu
                         v-if="category && category.length"
                         :category="category"
                         ulClass="hidden lg:flex gap-5 px-0 text-sm"
-                        liClass="flex items-center py-4 relative group"
-                        subUlClass="hidden absolute group-hover:flex w-32 flex-col z-50 top-12 bg-white dark:bg-black dark:text-white border shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)]"
+                        liClass="flex items-center py-2 relative group"
+                        subUlClass="invisible opacity-0 group-hover:visible group-hover:opacity-100 absolute w-32 flex-col z-50 top-full left-0 bg-white dark:bg-black dark:text-white border shadow-[0px_0px_2px_2px_rgba(0,0,0,0.3)] transition-all duration-200"
                     />
                 </li>
                 <li class="flex items-center"><router-link :to="{name:'about'}">Dịch Vụ </router-link></li>

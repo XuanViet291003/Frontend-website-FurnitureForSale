@@ -18,8 +18,8 @@
                     </div>
                     <ul v-if="menu" class="py-2 text-sm bg-gray-100 dark:bg-black dark:text-white border">
                         <li><router-link :to="{name:'account'}" class="flex hover:text-yellow-600 hover:bg-gray-700 p-2">Thông tin tài khoản</router-link></li>
-                        <li><router-link :to="{name:'changePass'}" class="flex hover:text-yellow-600 hover:bg-gray-700 p-2">Đơn hàng của bạn</router-link></li>
-                        <li><router-link :to="{name:'order'}" class="flex hover:text-yellow-600 hover:bg-gray-700 p-2">Đổi mật khẩu</router-link></li>
+                        <li><router-link :to="{name:'changePass'}" class="flex hover:text-yellow-600 hover:bg-gray-700 p-2">Đổi mật khẩu</router-link></li>
+                        <li><router-link :to="{name:'order'}" class="flex hover:text-yellow-600 hover:bg-gray-700 p-2">Đơn hàng của bạn</router-link></li>
                     </ul>
                 </div>
                 <div class="col-span-9 md:col-span-8    ">

@@ -4,7 +4,7 @@
     <router-view :countCart="countCart" :getCart="getCart" :carts="carts" :totalAmount="totalAmount"/>
 
     <!-- Menu setting -->
-    <div @click="openSetting" class="fixed right-0  bottom-32 flex justify-center items-center cursor-pointer shadow-lg z-50 transition-transform duration-700 hover:scale-110">
+    <div @click="openSetting" class="fixed right-0  bottom-32 flex justify-center items-center cursor-pointer shadow-lg z-50 transition-transform duration-400 hover:scale-110">
       <VueIcon type="mdi" :path="mdiCog" class="absolute right-2 animate-spin z-50 rounded-full bg-yellow-500"/>
       <div @click="scrollToTop()" :class="isSetting ? 'translate-y-0 opacity-100 duration-700' : 'translate-y-10 opacity-0 duration-100'" class="absolute transition-all -top-8 right-2 z-40">
         <VueIcon type="mdi" :path="mdiArrowUpBold" size="25" class="text-blue-500 w-5 h-5 rounded-full hover:bg-gray-700 flex justify-center items-center"/>

@@ -269,7 +269,7 @@ export default {
                     timeout: 5000
                 });
             } catch (err) {
-                this.$toast.error(`Thất bại`, {
+                this.$toast.error(`Bạn cần đăng nhập để mua hàng`, {
                     position: "top-right",
                     timeout: 5000
                 });

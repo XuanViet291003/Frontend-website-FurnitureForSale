@@ -26,19 +26,18 @@ export default {
         openLoginPanel(){
             this.$emit('openLoginPanel','login')
         },
-        async recoverHandle(){
-            try {
-                const res=await axios.post("/User/recover",{email:this.email})
-                this.message=res.data
-            } catch (err) {
-                if(err.response){
-                    this.message=err.response.data
+        async recoverHandle() {
+                if (!this.email || !/^\S+@\S+\.\S+$/.test(this.email)) {
+                    this.message = "Vui lòng nhập email hợp lệ";
+                    return;
                 }
-                else{
-                    this.message="Lỗi kết nối đến server"
+                try {
+                    const res = await axios.post("/User/recover", { email: this.email });
+                    this.message = res.data;
+                } catch (err) {
+                    this.message = err.response?.data || "Lỗi kết nối đến server";
                 }
             }
-        }
     }
 }
 </script>

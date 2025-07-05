@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4  gap-5 py-2 px-10  bg-gray-100 dark:bg-black dark:text-white border">
+        <div class="container mx-auto md:px-40 grid md:grid-cols-2 lg:grid-cols-4  gap-5 py-2 px-10  bg-gray-100 dark:bg-black dark:text-white border">
             <div class="col-span-1 flex flex-col gap-2">
                 <h1 class="uppercase font-semibold">Nội Thất MOHO</h1>
                 <p class="text-gray-600 dark:text-white">Nội Thất MOHO là thương hiệu với gần 40 năm kinh nghiệm trong việc sản xuất và xuất khẩu nội thất đạt chuẩn quốc tế.</p>
