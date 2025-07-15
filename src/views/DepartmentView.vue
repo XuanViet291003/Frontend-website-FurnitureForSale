@@ -3,7 +3,7 @@
         <div class="flex flex-wrap gap-2 items-center text-xs md:text-sm px-5 md:px-10 py-2 bg-gray-100 text-gray-500">
             <router-link :to="{name:'home'}">Trang chủ </router-link>/<p>{{ categoryType.name }}</p>/<p class="line-clamp-1">{{ data.category.name }}</p>
         </div>
-        <img :src="categoryType.image" alt="" class="min-w-full h-[25vh] md:h-[60vh]">
+        <img :src="categoryType.image" alt="" class="min-w-full h-[25vh] md:h-[60vh] object-cover">
         <div class="flex flex-col gap-5 p-5 md:p-10 dark:bg-black dark:text-white">
             <h1 class="font-bold text-base sm:text-xl md:text-3xl">{{data.category.name}}</h1>
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-10 text-sm sm::text-base">
@@ -75,6 +75,7 @@
             <div @click="handleFilter" class="sm:w-40 text-center p-2 uppercase text-white bg-black dark:bg-white dark:text-black cursor-pointer">Áp dụng</div>
             <div>
                 <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                    <!-- Nếu có ảnh trong ProductItem thì cần sửa trong ProductItem.vue -->
                     <ProductItem v-for="item in data.products" :key="item.productId" :item="item"/>
                 </div>
                 <div class="flex justify-center gap-5 text-gray-500 dark:text-white items-center">

@@ -24,7 +24,9 @@
                     </ul>
                 </div>
                 <div class="col-span-2 justify-center">
-                    <router-link :to="{name:'home'}"><img src="/assets/image/logo.png" alt="" class=" w-50 h-15"></router-link>
+                    <router-link :to="{name:'home'}">
+                        <img src="/assets/image/logo.png" alt="" class="w-50 h-15 object-cover">
+                    </router-link>
                 </div>
                 <div class="w-80 hidden md:flex">
                     <div class="flex items-center relative dark:bg-black dark:text-white border-2 p-1 border-gray-100 w-80 h-10 rounded focus-within:border-gray-400" >
