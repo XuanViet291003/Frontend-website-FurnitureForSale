@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col ">
+    <div class="container mx-auto md:px-40 flex flex-col ">
         <div class="flex flex-wrap gap-2 items-center text-xs md:text-sm px-5 md:px-10 py-2 bg-gray-100 text-gray-500">
             <a href="/">Trang chủ </a>/ <p>Về chúng tôi</p>
         </div>
