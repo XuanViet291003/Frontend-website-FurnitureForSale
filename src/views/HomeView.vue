@@ -3,10 +3,10 @@
         <div class="overflow-hidden relative flex items-center">
             <div id="slider" class="flex w-screen transition-transform duration-500 ease-in-out"   
             :style="{ transform: `translateX(-${currentIndex * 100}%)` }">
-                <img src="/assets/slider/slideshow_1_master.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh]">                
-                <img src="/assets/slider/slideshow_2.webp" alt="" class="min-w-full  flex-shrink-0 h-[25vh] md:h-[60vh]">                
-                <img src="/assets/slider/slideshow_3.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh]">                
-                <img src="/assets/slider/slideshow_8.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh]">     
+                <img src="/assets/slider/slideshow_1_master.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh] object-cover">                
+                <img src="/assets/slider/slideshow_2.webp" alt="" class="min-w-full  flex-shrink-0 h-[25vh] md:h-[60vh] object-cover">                
+                <img src="/assets/slider/slideshow_3.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh] object-cover">                
+                <img src="/assets/slider/slideshow_8.webp" alt="" class="min-w-full flex-shrink-0 h-[25vh] md:h-[60vh] object-cover">     
             </div>
             <div @click="prevSlide" class="absolute left-0 cursor-pointer animate-pulse text-black">
                 <VueIcon type="mdi" :path="mdiChevronLeft" size="70"/></div>           
@@ -26,9 +26,9 @@
                 <img src="/assets/image/thietke.jpg" alt="w-full h-full object-cover">
             </div>
         </div>
-        <div class="container mx-auto md:px-40 flex flex-col border-b  dark:bg-black gap-5">
+        <div class="container mx-auto md:px-40 flex flex-col border-b  dark:bg-black gap-10">
             <!-- new -->
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 object-cover">
                 <div class="flex justify-between items-center">
                     <h1 class="text-3xl font-medium">Mới nhất</h1>
                     <router-link :to="{name:'productall'}" class="text-red-500">Xem tất cả</router-link>
@@ -38,7 +38,7 @@
                 </div>
             </div>
             <!-- Sale -->
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 object-cover">
                 <div class="flex justify-between items-center">
                     <h1 class="text-3xl font-medium">Ưu đãi</h1>
                     <router-link :to="{name:'productall'}" class="text-red-500">Xem tất cả</router-link>
@@ -48,7 +48,7 @@
                 </div> 
             </div>
             <!-- Bán chạy -->
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 object-cover">
                 <div class="flex justify-between items-center">
                     <h1 class="text-3xl font-medium">Bán chạy</h1>
                     <router-link :to="{name:'productall'}" class="text-red-500">Xem tất cả</router-link>
@@ -58,7 +58,7 @@
                 </div> 
             </div>
             <!-- blog -->
-            <div class="flex flex-col gap-2">
+            <div class="flex flex-col gap-2 object-cover">
                 <h1 class="text-3xl font-medium">Đánh giá thực tế</h1>
                 <div class="flex w-full overflow-hidden relative">
                     <div id="blog" class="flex w-[calc(100vw-40px)] gap-5 md:gap-10 transition-transform duration-[3000ms] translate-x-0" 
@@ -66,7 +66,7 @@
                         <div v-for="(item, index) in commentView" 
                         :key="index" class="w-[calc(50%-20px)] md:w-[calc(25%-43px)] flex-shrink-0 border">
                             <div class="h-60 w-full border">
-                                <img :src="item.image" alt="" class="w-full h-full object-fill">
+                                <img :src="item.image" alt="" class="w-full h-full object-cover">
                             </div>
                             <div class="flex flex-col gap-3 p-3">
                                 <div class="flex flex-col items-center">
@@ -174,14 +174,6 @@ export default {
             try {
                 const res=await axios.get("/Product/getDiscount")
                 this.productDiscount=res.data
-            } catch (err) {
-                console.log(err)
-            }
-        },
-        async getProductSell(){
-            try {
-                const res=await axios.get("/Product/getSell")
-                this.productSell=res.data
             } catch (err) {
                 console.log(err)
             }

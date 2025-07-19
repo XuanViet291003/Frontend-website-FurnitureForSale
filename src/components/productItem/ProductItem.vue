@@ -11,10 +11,10 @@
             <p class="uppercase text-[12px] sm:text-sm font-semibold line-clamp-1" style="margin-bottom:20px;">{{item.name}}</p>
             <p class="text-red-500 text-[12px] sm:text-base" style="margin-bottom:20px;">
                 {{item.discountedPrice ? item.discountedPrice : item.price | numeral}}<u>đ</u>
-                <s v-if="item.discountedPrice" class="text-gray-400">{{item.price | numeral}}<u>đ</u></s>
+                <s v-if="item.discountedPrice" class="text-gray-400 px-2">{{item.price | numeral}}<u>đ</u></s>
             </p>
-            <div class="flex justify-between" style="margin-bottom:20px;">
-                <div class="flex items-center py-1">
+            <div class="flex justify-between items-center" style="margin-bottom:20px;">
+                <div class="flex justify-center items-center">
                     <star-rating v-model="rate"
                         :star-size="15"
                         :show-rating="false"
