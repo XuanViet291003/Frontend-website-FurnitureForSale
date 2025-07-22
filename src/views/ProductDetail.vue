@@ -57,7 +57,7 @@
                                 <div @click="quantity<10 && quantity++" class="bg-gray-100 w-8 cursor-pointer dark:bg-black dark:text-white">+</div>
                             </div>
                             <button @click="AddToCart" class="font-bold text-white text-xl py-2 uppercase bg-blue-800">Thêm vào giỏ</button>
-                            <button class="font-bold text-white text-xl py-2 uppercase bg-red-500">Mua ngay</button>
+                            <button  @click="handleCheckout" class="font-bold text-white text-xl py-2 uppercase bg-red-500">Mua ngay</button>
                             <p class="text-sm text-gray-500">(+) Miễn phí giao hàng & lắp đặt tại tất cả quận huyện thuộc TP.HCM, Hà Nội, Khu đô thị Ecopark, Biên Hòa và một số quận thuộc Bình Dương (*)</p>
                             <p class="text-sm text-gray-500">(+) Miễn phí 1 đổi 1 - Bảo hành 2 năm - Bảo trì trọn đời (**)</p>
                             <p class="text-sm text-gray-500">(*) Không áp dụng cho danh mục Đồ Trang Trí</p>
@@ -268,6 +268,28 @@ export default {
                     position: "top-right",
                     timeout: 5000
                 });
+            } catch (err) {
+                this.$toast.error(`Bạn cần đăng nhập để mua hàng`, {
+                    position: "top-right",
+                    timeout: 5000
+                });
+                console.log(err)
+            }
+        },
+        handleCheckout() {
+            this.PaymentAdd();
+            this.$router.push({ name: 'checkout' });
+        },
+        async PaymentAdd(){
+            try {
+                await axios.post("/Cart/addCart",{
+                    productId:this.product.productId,
+                    quantity:this.quantity,
+                    size:this.selectedSize,
+                    color:this.selectedColor,
+                    totalAmount:this.discountedPrice ? this.discountedPrice * this.quantity : this.price * this.quantity
+                })
+                this.getCart()
             } catch (err) {
                 this.$toast.error(`Bạn cần đăng nhập để mua hàng`, {
                     position: "top-right",
