@@ -9,8 +9,8 @@
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 items-center gap-10 text-sm sm::text-base">
                 <select name="sort" id="" v-model="sort" class="border-b dark:bg-black dark:text-white outline-none p-2">
                     <option value="">Sản phẩm nổi bật</option>
-                    <option value="price_asc">Giá: Tăng dần</option>
-                    <option value="price_desc">Giá: Giảm dần</option>
+                    <option value="Tăng dần">Giá: Tăng dần</option>
+                    <option value="Giảm dần">Giá: Giảm dần</option>
                     <option value="new">Mới nhất</option>
                     <option value="">Bán chạy nhất</option>
                 </select>

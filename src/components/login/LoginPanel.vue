@@ -9,17 +9,19 @@
                     autocomplete="email" 
                     :placeholder="$t('login.inputs.email_placeholder')"
                     v-model="email" class="w-full max-w-full outline-none border p-2 dark:text-black">
-                  <input 
-                    type="password" 
-                    autocomplete="current-password" 
-                    :placeholder="$t('login.inputs.password_placeholder')" 
-                    v-model="password" class="outline-none border p-2 dark:text-black">
-                  <p v-if="message" class="text-red-500">{{ message }}</p>
-                  <button :disabled="$store.state.loading" @click="Login" class=
-                  "bg-black flex justify-center items-center gap-2 text-white dark:bg-white dark:text-black font-bold py-2">
-                      <VueIcon v-if="$store.state.loading"  type="mdi" :path="mdiRotateRight" class=
-                      "animate-spin text-white dark:text-black"/>
-                      {{ $t('login.buttons.submit') }}</button>
+                  <form @submit.prevent="Login" class="flex flex-col gap-2">
+                      <input 
+                      type="password" 
+                      autocomplete="current-password" 
+                      :placeholder="$t('login.inputs.password_placeholder')" 
+                      v-model="password" class="outline-none border p-2 dark:text-black">
+                    <p v-if="message" class="text-red-500">{{ message }}</p>
+                    <button type="submit" :disabled="$store.state.loading" @click="Login" class=
+                    "bg-black flex justify-center items-center gap-2 text-white dark:bg-white dark:text-black font-bold py-2">
+                        <VueIcon v-if="$store.state.loading"  type="mdi" :path="mdiRotateRight" class=
+                        "animate-spin text-white dark:text-black"/>
+                        {{ $t('login.buttons.submit') }}</button>
+                  </form>
                   <p class="text-gray-400">{{ $t('login.account_actions.new_user_prompt') }} 
                     <span @click="openRegisterPanel" class="text-blue-500 cursor-pointer">{{ $t('login.account_actions.new_user_prompt') }}</span></p>
                   <p class="text-gray-400">{{ $t('login.forgot_password.prompt') }} 

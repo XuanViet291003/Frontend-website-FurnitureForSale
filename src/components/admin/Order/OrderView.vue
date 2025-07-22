@@ -19,13 +19,16 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in data" :key="item.orderId" class="">
-                        <td scope="col" @click="toggleDetails(item.orderId)" class="border text-center hover:text-blue-500 cursor-pointer">#{{ item.orderId }}</td>
+                        <td scope="col" @click="toggleDetails(item.orderId)" class=
+                        "border text-center hover:text-blue-500 cursor-pointer">#{{ item.orderId }}</td>
                         <td scope="col" class="border text-center">{{ formatDate(item.createDate) }}</td>
                         <td scope="col" class="border text-center">{{ item.totalAmount | numeral }} đ</td>
                         <td scope="col" class="border text-center">{{ item.paymentStatus }}</td>
                         <td scope="col" class="border text-center">{{ item.shippingStatus }}</td>
                         <td class="flex gap-2 justify-center items-center border">
-                            <div @click="Update(item.orderId,item.paymentStatus,item.shippingStatus)" :class="item.shippingStatus==='Đã giao' ? 'text-blue-500':'text-red-500'" class=" cursor-pointer"><VueIcon type="mdi" :path="mdiCheckCircle"/></div>
+                            <div @click="Update(item.orderId,item.paymentStatus,item.shippingStatus)"
+                             :class="item.shippingStatus==='Đã giao' ? 'text-blue-500':'text-red-500'" 
+                                class=" cursor-pointer"><VueIcon type="mdi" :path="mdiCheckCircle"/></div>
                             <div class="text-red-500"><VueIcon type="mdi" :path="mdiCloseCircle"/></div>
                         </td>
                     </tr>
@@ -83,7 +86,7 @@ export default {
         },
         async getOrder(){
             try {
-                const res=await axios.get(`/Order/GetAll?page=${this.page}&limit=${this.limit}`)
+                const res=await axios.get(`/Order/GetAll`)
                 this.data=res.data
             } catch (err) {
                 console.log(err)
