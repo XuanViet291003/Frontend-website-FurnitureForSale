@@ -136,8 +136,10 @@
                         </div>
                     </div>
                     <div class="flex flex-col gap-2 md:flex-row justify-between items-center">
-                        <router-link :to="{name:'cart'}" class=" text-blue-700">Giỏ hàng</router-link>
-                        <div @click="Checkout" class="w-full md:w-40 text-center p-2 text-white bg-blue-700 rounded-lg cursor-pointer">Hoàn tất đơn hàng</div>
+                        <router-link :to="{name:'cart'}" 
+                        class="w-full md:w-40 text-center p-2 text-white bg-blue-700 rounded-lg cursor-pointer">Giỏ hàng</router-link>
+                        <div @click="Checkout" 
+                        class="w-full md:w-40 text-center p-2 text-white bg-blue-700 rounded-lg cursor-pointer">Hoàn tất đơn hàng</div>
                     </div>
                 </div>
                 <div class="order-1 lg:order-2 bg-gray-100 dark:bg-black dark:text-white border p-5">
@@ -371,6 +373,49 @@ export default {
                     this.$toast.error("Bạn không có đơn hàng nào", {
                         position: "top-right",
                         timeout: 5000
+                    });
+                    return;
+                }
+
+                if(this.name==""){
+                    this.$toast.error("Vui lòng nhập tên khách hàng", {
+                        position: "top-right",
+                        timeout: 3000
+                    });
+                    return;
+                }
+                if(this.phone==""){
+                    this.$toast.error("Vui lòng nhập số điện thoại", {
+                        position: "top-right",
+                        timeout: 3000
+                    });
+                    return;
+                }
+                if(this.address==""){
+                    this.$toast.error("Vui lòng nhập địa chỉ", {
+                        position: "top-right",
+                        timeout: 3000
+                    });
+                    return;
+                }
+                if(this.city==""){
+                    this.$toast.error("Vui lòng nhập địa chỉ thành phố", {
+                        position: "top-right",
+                        timeout: 3000
+                    });
+                    return;
+                }
+                if(this.ward==""){
+                    this.$toast.error("Vui lòng nhập địa chỉ quận huyện", {
+                        position: "top-right",
+                        timeout: 3000
+                    });
+                    return;
+                }
+                if(this.district==""){
+                    this.$toast.error("Vui lòng nhập địa chỉ phường xã", {
+                        position: "top-right",
+                        timeout: 3000
                     });
                     return;
                 }
